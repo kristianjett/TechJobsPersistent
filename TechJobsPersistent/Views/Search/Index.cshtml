@@ -9,7 +9,7 @@
             @foreach (var column in ViewBag.columns)
             {
                 <span>
-                    <input type="radio" name="searchType" id="@column.Key" value="@column.Key" checked="@column.Key == 'all'" />
+                    <input type="radio" name="searchType" id="@column.Key" value="@column.Key" checked="@column.Key.Equals("all")" />
                     <label for="@column.Key">@column.Value</label>
                 </span>
             }
@@ -28,7 +28,7 @@
 
     @if (ViewBag.jobs != null)
     {
-        <table>
+        <table class="table">
             @foreach (var job in ViewBag.jobs)
             {
                 <tr>
@@ -36,7 +36,8 @@
                         <p>ID: @job.JobId</p>
                         <p>Name: @job.Name</p>
                         <p>Employer: @job.EmployerName</p>
-                        <p>Location: @job.SkillText</p>
+                        <p>Location: @job.EmployerLocation</p>
+                        <p>Skill(s): @job.SkillText</p>
                     </td>
                 </tr>
             }
